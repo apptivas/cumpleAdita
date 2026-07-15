@@ -1,0 +1,114 @@
+/* Globo 🎈 creado únicamente con CSS
+   Uso:
+   <div className="balloon"></div>
+*/
+
+.balloon {
+  --balloon-color: #ff4d6d;
+  --balloon-nudo: #d92d50;
+  --balloon-luz: #ff7890;
+  --balloon-sombra: #d92d50;
+  --balloon-highlight: rgba(255, 255, 255, 0.65);
+  --string-color: #777;
+
+  position: relative;
+  width: 120px;
+  height: 150px;
+  margin: 40px auto 190px;
+  border-radius: 50% 50% 46% 46%;
+  background:
+    radial-gradient(
+      circle at 32% 25%,
+      var(--balloon-highlight) 0 7%,
+      transparent 8%
+    ),
+    radial-gradient(
+      circle at 50% 38%,
+      var(--balloon-luz) 0%,
+      var(--balloon-color) 58%,
+      var(--balloon-sombra) 100%
+    );
+  box-shadow:
+    inset -12px -16px 20px rgba(120, 0, 30, 0.18),
+    0 12px 20px rgba(0, 0, 0, 0.18);
+  transform: rotate(-2deg);
+  animation: balloon-float 3s ease-in-out infinite;
+}
+
+/* Nudo del globo */
+.balloon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -14px;
+  width: 20px;
+  height: 20px;
+  background: var(--balloon-nudo);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  transform: translateX(-50%);
+}
+
+/* Cuerda */
+.balloon::after {
+  content: "";
+  position: absolute;
+  left: 53%;
+  top: calc(100% + 10px);
+
+  width: 30px;
+  height: 180px;
+
+  background: transparent;
+  border-left: 2px solid var(--string-color);
+  border-radius: 70%;
+
+  transform-origin: top center;
+  transform: translateX(-50%) rotate(3deg);
+}
+
+@keyframes balloon-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(2deg);
+  }
+}
+
+/* Variantes opcionales */
+.balloon.blue {
+  --balloon-color: #3b82f6;
+  --balloon-nudo: #2272f2;
+  --balloon-luz: #85aff2;
+  --balloon-sombra: #2272f2;
+}
+
+.balloon.yellow {
+  --balloon-color: #fbbf24;
+  --balloon-nudo:#f5b207;
+  --balloon-luz: #f5d37d;
+  --balloon-sombra: #f5b207;
+}
+
+.balloon.green {
+  --balloon-color: #22c55e;
+  --balloon-nudo:#02ad40;
+  --balloon-luz: #6dc28c;
+  --balloon-sombra: #02ad40;
+}
+
+.balloon.purple {
+  --balloon-color: #a855f7;
+  --balloon-nudo:#a855f7;
+  --balloon-luz: #c395ed;
+  --balloon-sombra: #600aad;
+}
+
+/* Respeta preferencias de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .balloon {
+    animation: none;
+  }
+}
