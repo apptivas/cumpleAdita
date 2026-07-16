@@ -1,0 +1,32 @@
+/* 07 · Corazón con contorno — dibujo 100% CSS, sin imágenes */
+.css-corazon-contorno {
+  --tamano: 94px;
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 1;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 50% 46% 52% 43% / 48% 44% 52% 50%;
+  background:
+    linear-gradient(135deg, transparent 0 68%, rgba(255,255,255,.55) 69% 72%, transparent 73%),
+    radial-gradient(circle at 46% 48%, #ffc8df 0 26%, #ffe0ec 58%, rgba(255,227,240,.5) 68%, transparent 78%);
+}
+.css-corazon-contorno .borde,
+.css-corazon-contorno .corazon {
+  position:absolute;
+  clip-path: polygon(50% 92%, 9% 53%, 6% 35%, 13% 18%, 26% 9%, 40% 12%, 50% 24%, 61% 12%, 75% 9%, 89% 18%, 95% 35%, 91% 53%);
+  transform: rotate(8deg);
+}
+.css-corazon-contorno .borde {
+  left:23%; top:19%; width:57%; height:62%; background:#fff;
+  filter:drop-shadow(2px 4px 3px rgba(228,76,139,.25));
+}
+.css-corazon-contorno .corazon {
+  left:29%; top:25%; width:45%; height:49%;
+  background:linear-gradient(145deg,#ff7fb5,#ef438b 82%);
+  box-shadow:inset 3px 4px rgba(255,255,255,.23);
+}
+.css-corazon-contorno .brillo {
+  position:absolute; left:43%; top:30%; width:15%; height:6%; border-radius:50%;
+  background:rgba(255,255,255,.52); transform:rotate(23deg);
+}

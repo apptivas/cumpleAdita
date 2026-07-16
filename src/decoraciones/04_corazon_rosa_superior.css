@@ -1,0 +1,24 @@
+/* 04 · Corazón rosa superior — dibujo 100% CSS, sin imágenes */
+.css-corazon-rosa-superior {
+  --tamano: 88px;
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 46 / 41;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 44% 42%, #ffb6d8 0 23%, transparent 52%),
+    radial-gradient(ellipse at center, rgba(255,174,213,.84) 0 39%, rgba(255,205,229,.38) 65%, transparent 76%);
+}
+.css-corazon-rosa-superior .corazon {
+  position: absolute; left: 30%; top: 24%; width: 43%; height: 51%;
+  clip-path: polygon(50% 92%, 9% 53%, 6% 34%, 13% 18%, 26% 10%, 40% 12%, 50% 24%, 61% 12%, 75% 10%, 88% 18%, 95% 34%, 91% 53%);
+  background: linear-gradient(145deg, #ff75b0 0%, #f23b8a 82%);
+  filter: drop-shadow(0 3px 3px rgba(219,46,124,.22));
+  transform: rotate(-4deg);
+}
+.css-corazon-rosa-superior .brillo {
+  position: absolute; left: 43%; top: 30%; width: 15%; height: 7%;
+  border-radius: 50%; background: rgba(255,255,255,.45); transform: rotate(18deg);
+}

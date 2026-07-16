@@ -6,6 +6,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import { Globes } from './common_animates'
 import './App.css'
+import { NotaRosa } from './common_animates/decorators/NotaRosa'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,7 +37,8 @@ function App() {
           <i className="confetti__piece"></i>
           <i className="confetti__piece"></i>
         </div>*/}
-        <Globes />
+              <Globes />
+              <NotaRosa />
         <button
           type="button"
           className="counter"

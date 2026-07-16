@@ -1,0 +1,36 @@
+/* 08 · Nota turquesa — dibujo 100% CSS, sin imágenes */
+.css-nota-turquesa {
+  --tamano: 98px;
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 56 / 64;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 48% 42% 53% 44% / 42% 48% 47% 58%;
+  background:
+    radial-gradient(circle at 89% 28%, #fff 0 27%, transparent 28%),
+    radial-gradient(circle at 102% 90%, #d9f8fb 0 30%, transparent 31%),
+    linear-gradient(145deg, #ffe4f2 0%, #efd9f4 55%, #e2daf2 100%);
+  box-shadow:0 8px 17px rgba(157,118,183,.16), inset 0 0 20px rgba(255,255,255,.35);
+}
+.css-nota-turquesa .nota { position:absolute; inset:0; z-index:2; transform:rotate(-10deg); }
+.css-nota-turquesa .cabeza {
+  position:absolute; left:22%; top:57%; width:34%; height:25%;
+  border-radius:58% 44% 58% 44%;
+  background:linear-gradient(145deg,#82e6df,#42c9c2 78%);
+  box-shadow:0 3px 5px rgba(44,168,166,.23), inset 2px 2px rgba(255,255,255,.35);
+}
+.css-nota-turquesa .palo {
+  position:absolute; left:50%; top:15%; width:8%; height:51%; border-radius:999px 999px 2px 2px;
+  background:linear-gradient(90deg,#82e8e1,#3fc6c0); box-shadow:inset 2px 0 rgba(255,255,255,.25);
+}
+.css-nota-turquesa .bandera {
+  position:absolute; left:54%; top:15%; width:27%; height:25%;
+  border-top:6px solid #4ccdc7;
+  border-right:5px solid #4ccdc7;
+  border-radius:0 75% 62% 0 / 0 58% 70% 0; transform:skewY(15deg);
+}
+.css-nota-turquesa .detalle {
+  position:absolute; right:-4%; bottom:19%; width:13%; height:13%; border-radius:50%;
+  background:#6bd9d4; box-shadow:inset 2px 2px rgba(255,255,255,.25);
+}
