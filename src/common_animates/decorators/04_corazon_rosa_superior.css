@@ -1,0 +1,33 @@
+/* Uso: <div class="css-corazon-rosa-superior"></div> */
+.css-corazon-rosa-superior {
+  --tamano: 88px;
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 46 / 41;
+  flex: 0 0 auto;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.css-corazon-rosa-superior::before {
+  content: "";
+  position: absolute;
+  left: 30%; top: 24%; width: 43%; height: 51%;
+  clip-path: polygon(
+    50% 94%,
+    46% 90%, 40% 84%, 34% 78%, 28% 72%, 22% 66%,
+    16% 59%, 11% 52%, 7% 44%, 6% 36%, 7% 29%,
+    10% 22%, 15% 16%, 21% 12%, 28% 10%, 34% 11%,
+    40% 14%, 45% 19%, 50% 25%,
+    55% 19%, 60% 14%, 66% 11%, 72% 10%, 79% 12%,
+    85% 16%, 90% 22%, 93% 29%, 94% 36%, 93% 44%,
+    89% 52%, 84% 59%, 78% 66%, 72% 72%, 66% 78%,
+    60% 84%, 54% 90%
+  );
+  background:
+    radial-gradient(ellipse at 36% 18%,rgba(255,255,255,.45) 0 8%,transparent 11%),
+    linear-gradient(145deg,#ff75b0 0%,#f23b8a 82%);
+  filter: drop-shadow(0 3px 3px rgba(219,46,124,.22));
+  transform: rotate(-4deg);
+}

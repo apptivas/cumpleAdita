@@ -1,0 +1,33 @@
+/* Uso: <div class="css-estrella-naranja"></div> */
+.css-estrella-naranja {
+  --tamano: 96px;
+  --estrella: polygon(50% 2%,61% 34%,96% 35%,68% 55%,78% 89%,50% 69%,22% 89%,32% 55%,4% 35%,39% 34%);
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.css-estrella-naranja::before,
+.css-estrella-naranja::after {
+  content: "";
+  position: absolute;
+  clip-path: var(--estrella);
+  transform: rotate(9deg);
+}
+
+.css-estrella-naranja::before {
+  left: 25%; top: 24%; width: 58%; height: 60%;
+  background: #fff;
+  filter: drop-shadow(4px 6px 2px rgba(218,86,123,.28));
+}
+
+.css-estrella-naranja::after {
+  left: 30%; top: 29%; width: 48%; height: 49%;
+  background:
+    radial-gradient(ellipse at 36% 18%,rgba(255,255,255,.38) 0 8%,transparent 11%),
+    linear-gradient(145deg,#ffd982,#ffba4d 78%);
+  box-shadow: inset 3px 3px rgba(255,255,255,.28);
+}

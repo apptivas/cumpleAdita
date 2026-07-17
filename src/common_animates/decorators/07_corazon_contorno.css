@@ -1,0 +1,43 @@
+/* Uso: <div class="css-corazon-contorno"></div> */
+.css-corazon-contorno {
+  --tamano: 94px;
+  --corazon: polygon(
+    50% 94%,
+    46% 90%, 40% 84%, 34% 78%, 28% 72%, 22% 66%,
+    16% 59%, 11% 52%, 7% 44%, 6% 36%, 7% 29%,
+    10% 22%, 15% 16%, 21% 12%, 28% 10%, 34% 11%,
+    40% 14%, 45% 19%, 50% 25%,
+    55% 19%, 60% 14%, 66% 11%, 72% 10%, 79% 12%,
+    85% 16%, 90% 22%, 93% 29%, 94% 36%, 93% 44%,
+    89% 52%, 84% 59%, 78% 66%, 72% 72%, 66% 78%,
+    60% 84%, 54% 90%
+  );
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.css-corazon-contorno::before,
+.css-corazon-contorno::after {
+  content: "";
+  position: absolute;
+  clip-path: var(--corazon);
+  transform: rotate(8deg);
+}
+
+.css-corazon-contorno::before {
+  left: 23%; top: 19%; width: 57%; height: 62%;
+  background: #fff;
+  filter: drop-shadow(2px 4px 3px rgba(228,76,139,.25));
+}
+
+.css-corazon-contorno::after {
+  left: 29%; top: 25%; width: 45%; height: 49%;
+  background:
+    radial-gradient(ellipse at 34% 18%,rgba(255,255,255,.52) 0 8%,transparent 11%),
+    linear-gradient(145deg,#ff7fb5,#ef438b 82%);
+  box-shadow: inset 3px 4px rgba(255,255,255,.23);
+}

@@ -1,12 +1,14 @@
 
 // import "./assets/confetti-animado.css";
+import "./common_animates/decorators/nubes2.css"
+import "./common_animates/decorators/nube_completa.css"
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
-import { Globes } from './common_animates'
+import { CorazonContorno, CorazonRosaSuperior, EstrellaAmarilla, EstrellaNaranja, Globes, NotaRosa, NotasMoradas, NotasRosasDobles, NotaTurquesa, Nubes } from './common_animates'
 import './App.css'
-import { NotaRosa } from './common_animates/decorators/NotaRosa'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,8 +39,22 @@ function App() {
           <i className="confetti__piece"></i>
           <i className="confetti__piece"></i>
         </div>*/}
-              <Globes />
-              <NotaRosa />
+
+
+        <div className="nubes2" aria-hidden="true" />
+
+        <div className="nube-completa" aria-hidden="true" />
+
+        <Nubes />
+        <Globes />
+        <NotaRosa  />
+        <CorazonRosaSuperior  />
+        <NotasMoradas  />
+        <NotasRosasDobles/>
+        <CorazonContorno />
+        <NotaTurquesa />
+        <EstrellaNaranja />
+        <EstrellaAmarilla />
         <button
           type="button"
           className="counter"

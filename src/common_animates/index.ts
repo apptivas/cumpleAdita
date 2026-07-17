@@ -1,1 +1,2 @@
-export { Globes } from './globes/Globes'
+export { Globes } from './decorators/globes/Globes'
+export * from './decorators'

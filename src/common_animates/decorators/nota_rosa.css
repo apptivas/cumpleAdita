@@ -1,47 +1,54 @@
-/* 01 · Nota rosa — dibujo 100% CSS, sin imágenes */
+/* Nota rosa dibujada con un único elemento HTML.
+   Uso: <div class="css-nota-rosa"></div> */
 .css-nota-rosa {
   --tamano: 96px;
   position: relative;
   width: var(--tamano);
   aspect-ratio: 56 / 61;
+  flex: 0 0 auto;
   isolation: isolate;
-  overflow: hidden;
+  transform: rotate(-7deg);
+
+  /* Palo de la nota. */
+  background:
+    linear-gradient(90deg, #ffb1d2 0 22%, #ff87bc 23%, #f13a86 72%)
+    51% 10% / 8% 47% no-repeat;
 }
-/*.css-nota-rosa::after {
+
+/* Cabeza de la nota, con el brillo incluido en el degradado. */
+.css-nota-rosa::before {
   content: "";
   position: absolute;
-  width: 49%; height: 29%;
-  right: -15%; bottom: -8%;
-  border-radius: 50%;
-  background: rgba(255,255,255,.92);
-  filter: blur(.2px);
-}*/
-.css-nota-rosa .nota { position: absolute; inset: 0; z-index: 2; transform: rotate(-7deg); }
-.css-nota-rosa .cabeza {
-  position: absolute; left: 24%; top: 46%;
-  width: 34%; height: 27%;
+  left: 24%;
+  top: 46%;
+  width: 34%;
+  height: 27%;
   border-radius: 58% 44% 55% 46%;
-  background: linear-gradient(145deg, #ff79b3 0%, #f43c8a 72%);
-  box-shadow: inset 2px 3px 0 rgba(255,255,255,.38), inset -2px -3px 0 rgba(209,20,105,.18), 0 3px 5px rgba(201,63,126,.25);
+  background:
+    radial-gradient(
+      ellipse at 28% 22%,
+      rgba(255, 255, 255, .58) 0 12%,
+      transparent 15%
+    ),
+    linear-gradient(145deg, #ff79b3 0%, #f43c8a 72%);
+  box-shadow:
+    inset 2px 3px 0 rgba(255, 255, 255, .38),
+    inset -2px -3px 0 rgba(209, 20, 105, .18),
+    0 3px 5px rgba(201, 63, 126, .25);
 }
-.css-nota-rosa .palo {
-  position: absolute; left: 51%; top: 10%;
-  width: 8%; height: 47%;
-  border-radius: 999px 999px 2px 2px;
-  background: linear-gradient(90deg, #ff87bc, #f13a86 70%);
-  box-shadow: inset 2px 0 rgba(255,255,255,.35);
-}
-.css-nota-rosa .bandera {
-  position: absolute; left: 55%; top: 11%;
-  width: 25%; height: 23%;
-  border-radius: 0 80% 60% 0 / 0 65% 65% 0;
+
+/* Bandera de la corchea. */
+.css-nota-rosa::after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  top: 11%;
+  width: 25%;
+  height: 23%;
+  box-sizing: border-box;
   border-top: 5px solid #f43e8a;
   border-right: 5px solid #f43e8a;
+  border-radius: 0 80% 60% 0 / 0 65% 65% 0;
+  box-shadow: inset 0 2px rgba(255, 255, 255, .25);
   transform: skewY(11deg);
-  box-shadow: inset 0 2px rgba(255,255,255,.25);
-}
-.css-nota-rosa .brillo {
-  position: absolute; left: 31%; top: 49%; z-index: 3;
-  width: 13%; height: 5%; border-radius: 50%;
-  background: rgba(255,255,255,.52); transform: rotate(-22deg); filter: blur(.4px);
 }

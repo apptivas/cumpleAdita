@@ -1,0 +1,33 @@
+/* Uso: <div class="css-notas-moradas"></div> */
+.css-notas-moradas {
+  --tamano: 104px;
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(#aaa0ef,#8175d7) 48% 6% / 52.5% 10% no-repeat,
+    linear-gradient(90deg,#a79aeb,#8172d2) 25% 25% / 9% 48% no-repeat,
+    linear-gradient(90deg,#a79aeb,#8172d2) 73% 25% / 9% 48% no-repeat,
+    linear-gradient(#fff,#fff) 48% 3% / 58% 15% no-repeat,
+    linear-gradient(#fff,#fff) 24% 23% / 15% 55% no-repeat,
+    linear-gradient(#fff,#fff) 74% 23% / 15% 59% no-repeat;
+}
+
+.css-notas-moradas::before,
+.css-notas-moradas::after {
+  content: "";
+  position: absolute;
+  top: 60%;
+  width: 28%;
+  height: 22%;
+  border-radius: 58% 45% 58% 44%;
+  background: linear-gradient(145deg,#9d91e5,#7568cf 78%);
+  box-shadow: 0 0 0 5px #fff,0 5px 6px rgba(112,84,189,.25),inset 2px 2px rgba(255,255,255,.24);
+  transform: rotate(-10deg);
+}
+
+.css-notas-moradas::before { left: 22%; }
+.css-notas-moradas::after { left: 66%; }

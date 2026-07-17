@@ -1,0 +1,142 @@
+/* Nubes largas estilo pastel — inspiradas en la imagen de referencia */
+
+.cloud-scene {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Opcional: fondo de demostración. Puede eliminarse si ya tienes tu propio fondo. */
+.cloud-scene--demo {
+  background:
+    linear-gradient(135deg, transparent 0 56%, rgba(255,255,255,.25) 56% 57%, transparent 57%),
+    linear-gradient(135deg, #65d4e7 0 16%, #86e2d5 16% 28%, #ffe49d 28% 40%, #ffb7cf 40% 52%, #ee74b6 52% 65%, #ac72d3 65% 100%);
+}
+
+.cloud {
+  --fill: #fff8fb;
+  --edge: #f4d9e8;
+  --shadow: rgba(205, 138, 181, .14);
+  --shine: rgba(255, 255, 255, .72);
+  --scale: 1;
+
+  position: absolute;
+  width: 920px;
+  height: 76px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--shine), var(--fill) 38%);
+  box-shadow: inset 0 8px 14px rgba(255, 255, 255, .38);
+  transform: scale(var(--scale));
+  transform-origin: left bottom;
+  filter:
+    drop-shadow(-3px -4px 0 var(--edge))
+    drop-shadow(3px -2px 0 var(--edge))
+    drop-shadow(0 12px 16px var(--shadow));
+}
+
+/* Lóbulos principales: grandes, cercanos y a distintas alturas. */
+.cloud::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  bottom: 34px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--shine), var(--fill) 48%);
+  box-shadow:
+     66px  20px 0 -13px var(--fill),
+    126px   2px 0   2px var(--fill),
+    202px  18px 0  -9px var(--fill),
+    264px -20px 0  18px var(--fill),
+    356px   5px 0   3px var(--fill),
+    430px -12px 0  13px var(--fill),
+    518px  16px 0  -7px var(--fill),
+    580px -23px 0  21px var(--fill),
+    678px   5px 0   5px var(--fill),
+    758px -10px 0  14px var(--fill),
+    846px  17px 0  -7px var(--fill);
+}
+
+/* Lóbulos pequeños que rellenan los huecos y dan más volumen. */
+.cloud::after {
+  content: "";
+  position: absolute;
+  left: 40px;
+  bottom: 22px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--shine), var(--fill) 55%);
+  box-shadow:
+     58px   6px 0   4px var(--fill),
+    126px  -7px 0  10px var(--fill),
+    205px   7px 0   1px var(--fill),
+    270px -10px 0  12px var(--fill),
+    354px   5px 0   5px var(--fill),
+    425px  -8px 0  11px var(--fill),
+    510px   7px 0   1px var(--fill),
+    574px -11px 0  13px var(--fill),
+    662px   5px 0   5px var(--fill),
+    736px  -7px 0  10px var(--fill),
+    818px   7px 0   1px var(--fill);
+}
+
+/* Paleta pastel similar a la referencia */
+.cloud--white {
+  --fill: #fff9fc;
+  --edge: #f7dce9;
+  --shadow: rgba(211, 132, 176, .13);
+}
+
+.cloud--cream {
+  --fill: #fff8df;
+  --edge: #f8e3b8;
+  --shadow: rgba(201, 157, 83, .12);
+}
+
+.cloud--pink {
+  --fill: #fff0f7;
+  --edge: #f7d0e3;
+  --shadow: rgba(221, 116, 173, .14);
+}
+
+.cloud--lilac {
+  --fill: #f8f0ff;
+  --edge: #e5d2f3;
+  --shadow: rgba(139, 91, 181, .14);
+}
+
+/* Posiciones: varias capas para aumentar la cantidad */
+.cloud--1 { left: -110px; bottom: -34px; --scale: 1.10; z-index: 6; }
+.cloud--2 { left: 520px;  bottom: -48px; --scale: .95; z-index: 7; }
+.cloud--3 { left: 1160px; bottom: -38px; --scale: 1.05; z-index: 6; }
+
+.cloud--4 { left: -260px; bottom: 38px; --scale: .78; z-index: 4; opacity: .98; }
+.cloud--5 { left: 370px;  bottom: 52px; --scale: .72; z-index: 3; opacity: .97; }
+.cloud--6 { left: 930px;  bottom: 44px; --scale: .82; z-index: 4; opacity: .98; }
+.cloud--7 { left: 1510px; bottom: 58px; --scale: .70; z-index: 3; opacity: .96; }
+
+/* Capa lejana, más suave */
+.cloud--far {
+  opacity: .72;
+  filter:
+    drop-shadow(-2px -3px 0 rgba(255,255,255,.48))
+    drop-shadow(2px -2px 0 var(--edge))
+    drop-shadow(0 8px 14px rgba(136, 96, 165, .10));
+}
+
+/* Mejora en pantallas pequeñas */
+@media (max-width: 900px) {
+  .cloud-scene { min-height: 220px; }
+  .cloud { width: 760px; }
+  .cloud--1 { left: -220px; --scale: .92; }
+  .cloud--2 { left: 330px;  --scale: .82; }
+  .cloud--3 { left: 760px;  --scale: .88; }
+  .cloud--4 { left: -300px; --scale: .66; }
+  .cloud--5 { left: 170px;  --scale: .62; }
+  .cloud--6 { left: 570px;  --scale: .68; }
+  .cloud--7 { left: 980px;  --scale: .60; }
+}

@@ -1,0 +1,33 @@
+/* Uso: <div class="css-nota-turquesa"></div> */
+.css-nota-turquesa {
+  --tamano: 98px;
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 56 / 64;
+  flex: 0 0 auto;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg,#82e8e1,#3fc6c0) 50% 15% / 8% 51% no-repeat;
+  transform: rotate(-10deg);
+}
+
+.css-nota-turquesa::before {
+  content: "";
+  position: absolute;
+  left: 24%; top: 54%; width: 34%; height: 25%;
+  border-radius: 58% 44% 58% 44%;
+  background: linear-gradient(145deg,#82e6df,#42c9c2 78%);
+  box-shadow: 0 3px 5px rgba(44,168,166,.23),inset 2px 2px rgba(255,255,255,.35);
+}
+
+.css-nota-turquesa::after {
+  content: "";
+  position: absolute;
+  left: 53%; top: 15%; width: 27%; height: 25%;
+  box-sizing: border-box;
+  border-top: 6px solid #4ccdc7;
+  border-right: 5px solid #4ccdc7;
+  border-radius: 0 75% 62% 0 / 0 58% 70% 0;
+  transform: skewY(15deg);
+}

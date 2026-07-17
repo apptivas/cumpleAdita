@@ -1,0 +1,33 @@
+/* Uso: <div class="css-notas-rosas-dobles"></div> */
+.css-notas-rosas-dobles {
+  --tamano: 104px;
+  position: relative;
+  width: var(--tamano);
+  aspect-ratio: 76 / 68;
+  flex: 0 0 auto;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(#ff75ae,#f13983) 67% 2% / 50% 12% no-repeat,
+    linear-gradient(90deg,#ff79b1,#ee377f) 36.5% 19% / 8% 45% no-repeat,
+    linear-gradient(90deg,#ff79b1,#ee377f) 82% 19% / 8% 45% no-repeat,
+    linear-gradient(#fff,#fff) 34.7% 17% / 13% 49% no-repeat,
+    linear-gradient(#fff,#fff) 67% 1% / 55% 15% no-repeat,
+    linear-gradient(#fff,#fff) 83% 17% / 13% 49% no-repeat;
+}
+
+.css-notas-rosas-dobles::before,
+.css-notas-rosas-dobles::after {
+  content: "";
+  position: absolute;
+  top: 51%;
+  width: 28%;
+  height: 23%;
+  border-radius: 58% 44% 57% 45%;
+  background: linear-gradient(145deg,#ff75ad,#ef3480 78%);
+  box-shadow: 0 0 0 3px #fff,0 4px 6px rgba(210,45,115,.26),inset 2px 2px rgba(255,255,255,.25);
+  transform: rotate(8deg);
+}
+
+.css-notas-rosas-dobles::before { left: 13%; }
+.css-notas-rosas-dobles::after { left: 56%; }
