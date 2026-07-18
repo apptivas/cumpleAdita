@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200" height="800" viewBox="0 0 1200 800"
+     role="img" aria-label="Arcoíris pastel aislado con fondo transparente">
+  <title>Arcoíris pastel sin fondo</title>
+  <desc>Seis bandas curvas pastel, sin nubes ni objetos adicionales, con extremos redondeados.</desc>
+
+  <!-- No existe rectángulo de fondo: el SVG es transparente. -->
+  <g>
+    <path d="M 95 85 C 330 70, 450 135, 610 285 C 775 440, 935 515, 1105 485" fill="none" stroke="#F58ABC" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/><path d="M 95 143 C 330 128, 450 193, 610 343 C 775 498, 935 573, 1105 543" fill="none" stroke="#FFC79B" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/><path d="M 95 201 C 330 186, 450 251, 610 401 C 775 556, 935 631, 1105 601" fill="none" stroke="#FFE99A" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/><path d="M 95 259 C 330 244, 450 309, 610 459 C 775 614, 935 689, 1105 659" fill="none" stroke="#7DDED3" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/><path d="M 95 317 C 330 302, 450 367, 610 517 C 775 672, 935 747, 1105 717" fill="none" stroke="#5CC7E0" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/><path d="M 95 375 C 330 360, 450 425, 610 575 C 775 730, 935 805, 1105 775" fill="none" stroke="#B77BDA" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g>
+    <path d="M 110 72 C 330 58, 445 119, 605 268 C 765 417, 920 493, 1080 468" fill="none" stroke="#FFFFFF" stroke-opacity="0.13" stroke-width="8" stroke-linecap="round"/><path d="M 110 130 C 330 116, 445 177, 605 326 C 765 475, 920 551, 1080 526" fill="none" stroke="#FFFFFF" stroke-opacity="0.13" stroke-width="8" stroke-linecap="round"/><path d="M 110 188 C 330 174, 445 235, 605 384 C 765 533, 920 609, 1080 584" fill="none" stroke="#FFFFFF" stroke-opacity="0.13" stroke-width="8" stroke-linecap="round"/><path d="M 110 246 C 330 232, 445 293, 605 442 C 765 591, 920 667, 1080 642" fill="none" stroke="#FFFFFF" stroke-opacity="0.13" stroke-width="8" stroke-linecap="round"/><path d="M 110 304 C 330 290, 445 351, 605 500 C 765 649, 920 725, 1080 700" fill="none" stroke="#FFFFFF" stroke-opacity="0.13" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
