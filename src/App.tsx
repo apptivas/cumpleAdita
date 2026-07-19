@@ -77,7 +77,7 @@ function App() {
         </div>
 
         <div className="birthday-message">
-          <p>Feliz cumpleaños</p>
+          <p>Mi primer añito</p>
           <span>Un añito lleno de amor, magia y alegría</span>
         </div>
       </section>
