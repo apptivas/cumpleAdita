@@ -3,6 +3,7 @@ import "./common_animates/decorators/nube_completa.css"
 import {
   CorazonContorno,
   CorazonRosaSuperior,
+  Countdown,
   EstrellaAmarilla,
   EstrellaNaranja,
   GaleriaFotosAdita,
@@ -12,6 +13,7 @@ import {
   NotasRosasDobles,
   NotaTurquesa,
   Nubes,
+
 } from "./common_animates/decorators"
 import arcoiris from "./images/arcoiris.png"
 import arcoirisSinFondo from "./images/arcoiris_sin_fondo.svg"
@@ -21,6 +23,7 @@ import "./App.css"
 
 function App() {
   return (
+    <>
     <main className="birthday-landing">
       <div className="birthday-background" aria-hidden="true">
         <img className="birthday-rainbow birthday-rainbow--top" src={arcoiris} alt="" />
@@ -89,7 +92,10 @@ function App() {
       </div>
 
       <Globes />
-    </main>
+      </main>
+
+    <Countdown />
+    </>
   )
 }
 
