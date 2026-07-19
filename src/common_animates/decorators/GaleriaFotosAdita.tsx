@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import adita1 from "../../images/adita1.jpeg"
 import adita2 from "../../images/adita2.jpeg"
+import adita3 from "../../images/adita3.jpeg"
 import "./galeria_fotos_adita.css"
 
 const photos = [
@@ -9,8 +10,12 @@ const photos = [
     alt: "Adita celebrando su primer año junto a su pastel",
   },
   {
-    src: adita2,
+    src: adita3,
     alt: "Adita mirando su pastel de cumpleaños",
+  },
+  {
+    src: adita2,
+    alt: "Adita paradita con una silla",
   },
 ]
 

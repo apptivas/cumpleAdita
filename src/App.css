@@ -69,8 +69,8 @@
 
 .birthday-rainbow--bottom {
   left: -45%;
-  bottom: 2%;
-  width: 145%;
+  bottom: -15%;
+  width: 157%;
   opacity: .78;
   transform: rotate(-11deg);
   filter: saturate(.88) brightness(1.06);
@@ -318,8 +318,8 @@
 
   .birthday-rainbow--bottom {
     left: -22%;
-    bottom: -10%;
-    width: 92%;
+    bottom: -95%;
+    width: 135%;
   }
 
   .birthday-decoration { --decoration-scale: .72; }

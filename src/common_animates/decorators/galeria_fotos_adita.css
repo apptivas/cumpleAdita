@@ -1,4 +1,7 @@
 .adita-photo-gallery {
+    bottom:7%;
+
+    right: 3%;
   position: relative;
   display: flex;
   align-items: center;
@@ -52,7 +55,11 @@
   margin-left: -48px;
   transform: translateY(22px) rotate(5deg) rotateY(-2deg);
 }
-
+.adita-photo-card--3 {
+  z-index: 2;
+  margin-left: -48px;
+  transform: translateY(22px) rotate(-10deg) rotateY(-2deg);
+}
 .adita-photo-card:hover,
 .adita-photo-card:focus-visible {
   z-index: 4;
@@ -72,6 +79,10 @@
   transform: translateY(8px) rotate(2deg) scale(1.025);
 }
 
+.adita-photo-card--3:hover,
+.adita-photo-card--3:focus-visible {
+  transform: translateY(8px) rotate(2deg) scale(1.025);
+}
 .adita-lightbox {
   position: fixed;
   inset: 0;
@@ -217,17 +228,39 @@
 
 @media (max-width: 680px) {
   .adita-photo-gallery {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    place-items: center;
+    width: 100%;
     min-height: 280px;
     padding: 34px 5px;
   }
 
   .adita-photo-card {
+    grid-column: 1;
+    grid-row: 1;
     width: min(58vw, 250px);
+    margin: 0;
     padding: 7px 7px 20px;
   }
 
-  .adita-photo-card--1 { transform: translateX(18px) rotate(-7deg); }
-  .adita-photo-card--2 { margin-left: -42%; transform: translate(18px, 25px) rotate(6deg); }
+  .adita-photo-card--1 {
+    transform: translateX(-17%) rotate(-7deg);
+  }
+
+  .adita-photo-card--2 {
+    transform: translate(17%, 25px) rotate(6deg);
+  }
+
+  .adita-photo-card--1:hover,
+  .adita-photo-card--1:focus-visible {
+    transform: translate(-17%, -8px) rotate(-4deg) scale(1.025);
+  }
+
+  .adita-photo-card--2:hover,
+  .adita-photo-card--2:focus-visible {
+    transform: translate(17%, 12px) rotate(3deg) scale(1.025);
+  }
 
   .adita-lightbox { padding: 14px; }
 
