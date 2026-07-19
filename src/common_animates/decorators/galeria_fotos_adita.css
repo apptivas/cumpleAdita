@@ -1,0 +1,264 @@
+.adita-photo-gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 820px);
+  min-height: 390px;
+  padding: 48px 28px;
+  box-sizing: border-box;
+  isolation: isolate;
+  perspective: 1100px;
+}
+
+.adita-photo-card {
+  position: relative;
+  width: clamp(230px, 35vw, 350px);
+  padding: 11px 11px 30px;
+  border: 1px solid rgba(236, 233, 226, .95);
+  border-radius: 1px;
+  background: linear-gradient(145deg, #fff 0%, #f8f7f2 100%);
+  box-shadow:
+    0 4px 2px rgba(33, 26, 28, .12),
+    0 17px 25px rgba(33, 26, 28, .24);
+  cursor: zoom-in;
+  transition: transform .3s ease, box-shadow .3s ease, z-index 0s;
+}
+
+.adita-photo-card::after,
+.adita-lightbox__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255,255,255,.65);
+  background: linear-gradient(120deg, rgba(255,255,255,.13), transparent 28% 75%, rgba(84,52,73,.05));
+  pointer-events: none;
+}
+
+.adita-photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.adita-photo-card--1 {
+  z-index: 1;
+  transform: translateX(24px) rotate(-7deg) rotateY(2deg);
+}
+
+.adita-photo-card--2 {
+  z-index: 2;
+  margin-left: -48px;
+  transform: translateY(22px) rotate(5deg) rotateY(-2deg);
+}
+
+.adita-photo-card:hover,
+.adita-photo-card:focus-visible {
+  z-index: 4;
+  outline: none;
+  box-shadow:
+    0 5px 3px rgba(33,26,28,.14),
+    0 24px 34px rgba(33,26,28,.3);
+}
+
+.adita-photo-card--1:hover,
+.adita-photo-card--1:focus-visible {
+  transform: translate(24px, -12px) rotate(-4deg) scale(1.025);
+}
+
+.adita-photo-card--2:hover,
+.adita-photo-card--2:focus-visible {
+  transform: translateY(8px) rotate(2deg) scale(1.025);
+}
+
+.adita-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: rgba(24, 16, 25, .84);
+  backdrop-filter: blur(8px);
+  cursor: zoom-out;
+  animation: adita-lightbox-in .22s ease-out both;
+}
+
+.adita-lightbox__panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  width: min(1120px, 96vw);
+  max-height: 94vh;
+  cursor: default;
+}
+
+.adita-lightbox__photo {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  max-width: min(900px, 78vw);
+  margin: 0;
+  padding: clamp(8px, 1.2vw, 14px) clamp(8px, 1.2vw, 14px) clamp(18px, 2.5vw, 32px);
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #fff, #f7f5ef);
+  box-shadow: 0 28px 70px rgba(0,0,0,.48), 0 4px 7px rgba(0,0,0,.3);
+  animation: adita-photo-in .28s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.adita-lightbox__photo--1 { transform: rotate(-1.5deg); }
+.adita-lightbox__photo--2 { transform: rotate(1.5deg); }
+
+.adita-lightbox__photo img {
+  display: block;
+  max-width: 100%;
+  max-height: 76vh;
+  object-fit: contain;
+}
+
+.adita-lightbox__close,
+.adita-lightbox__arrow,
+.adita-lightbox__thumbnails button {
+  border: 0;
+  cursor: pointer;
+}
+
+.adita-lightbox__close {
+  position: absolute;
+  z-index: 3;
+  top: -16px;
+  right: 3%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #4b274b;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  font: 300 34px/40px system-ui, sans-serif;
+}
+
+.adita-lightbox__arrow {
+  z-index: 2;
+  width: 52px;
+  height: 66px;
+  border-radius: 999px;
+  color: #713c83;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  font: 300 48px/1 system-ui, sans-serif;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.adita-lightbox__arrow:hover,
+.adita-lightbox__arrow:focus-visible,
+.adita-lightbox__close:hover,
+.adita-lightbox__close:focus-visible {
+  outline: 3px solid #d995e6;
+  outline-offset: 3px;
+  transform: scale(1.07);
+  background: #fff;
+}
+
+.adita-lightbox__arrow--left { grid-column: 1; grid-row: 1; }
+.adita-lightbox__arrow--right { grid-column: 3; grid-row: 1; }
+
+.adita-lightbox__thumbnails {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.adita-lightbox__thumbnails button {
+  width: 86px;
+  padding: 4px 4px 10px;
+  border: 2px solid transparent;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,.28);
+  opacity: .62;
+  transform: rotate(-3deg);
+  transition: opacity .2s ease, transform .2s ease, border-color .2s ease;
+}
+
+.adita-lightbox__thumbnails button:nth-child(2) { transform: rotate(3deg); }
+
+.adita-lightbox__thumbnails button:hover,
+.adita-lightbox__thumbnails button:focus-visible,
+.adita-lightbox__thumbnails button.is-selected {
+  border-color: #c975d8;
+  outline: none;
+  opacity: 1;
+  transform: rotate(0) translateY(-4px);
+}
+
+.adita-lightbox__thumbnails img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@keyframes adita-lightbox-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes adita-photo-in {
+  from { opacity: 0; scale: .9; }
+  to { opacity: 1; scale: 1; }
+}
+
+@media (max-width: 680px) {
+  .adita-photo-gallery {
+    min-height: 280px;
+    padding: 34px 5px;
+  }
+
+  .adita-photo-card {
+    width: min(58vw, 250px);
+    padding: 7px 7px 20px;
+  }
+
+  .adita-photo-card--1 { transform: translateX(18px) rotate(-7deg); }
+  .adita-photo-card--2 { margin-left: -42%; transform: translate(18px, 25px) rotate(6deg); }
+
+  .adita-lightbox { padding: 14px; }
+
+  .adita-lightbox__panel {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .adita-lightbox__photo { max-width: 82vw; }
+  .adita-lightbox__photo img { max-height: 67vh; }
+
+  .adita-lightbox__arrow {
+    width: 42px;
+    height: 54px;
+    font-size: 40px;
+  }
+
+  .adita-lightbox__close {
+    top: -12px;
+    right: 0;
+  }
+
+  .adita-lightbox__thumbnails button { width: 68px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adita-photo-card,
+  .adita-lightbox,
+  .adita-lightbox__photo {
+    animation: none;
+    transition: none;
+  }
+}

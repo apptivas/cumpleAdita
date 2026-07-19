@@ -1,155 +1,95 @@
-
-// import "./assets/confetti-animado.css";
 import "./common_animates/decorators/nubes2.css"
 import "./common_animates/decorators/nube_completa.css"
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { CorazonContorno, CorazonRosaSuperior, EstrellaAmarilla, EstrellaNaranja, Globes, NotaRosa, NotasMoradas, NotasRosasDobles, NotaTurquesa, Nubes } from './common_animates'
-import './App.css'
-
+import {
+  CorazonContorno,
+  CorazonRosaSuperior,
+  EstrellaAmarilla,
+  EstrellaNaranja,
+  GaleriaFotosAdita,
+  Globes,
+  NotaRosa,
+  NotasMoradas,
+  NotasRosasDobles,
+  NotaTurquesa,
+  Nubes,
+} from "./common_animates/decorators"
+import arcoiris from "./images/arcoiris.png"
+import arcoirisSinFondo from "./images/arcoiris_sin_fondo.svg"
+import luli from "./images/luli.png"
+import nombreAdamaris from "./images/nombreAdamaris.png"
+import "./App.css"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <main className="birthday-landing">
+      <div className="birthday-background" aria-hidden="true">
+        <img className="birthday-rainbow birthday-rainbow--top" src={arcoiris} alt="" />
+        <img
+          className="birthday-rainbow birthday-rainbow--bottom"
+          src={arcoirisSinFondo}
+          alt=""
+        />
+
+        <div className="birthday-top-clouds">
+          <div className="nubes2" />
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
+
+        <div className="birthday-decoration birthday-decoration--note-pink">
+          <NotaRosa />
         </div>
-        {/*<div className="confetti" aria-hidden="true">
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-          <i className="confetti__piece"></i>
-        </div>*/}
+        <div className="birthday-decoration birthday-decoration--heart-top">
+          <CorazonRosaSuperior />
+        </div>
+        <div className="birthday-decoration birthday-decoration--notes-purple">
+          <NotasMoradas />
+        </div>
+        <div className="birthday-decoration birthday-decoration--notes-pink">
+          <NotasRosasDobles />
+        </div>
+        <div className="birthday-decoration birthday-decoration--heart-outline">
+          <CorazonContorno />
+        </div>
+        <div className="birthday-decoration birthday-decoration--note-turquoise">
+          <NotaTurquesa />
+        </div>
+        <div className="birthday-decoration birthday-decoration--star-orange">
+          <EstrellaNaranja />
+        </div>
+        <div className="birthday-decoration birthday-decoration--star-yellow">
+          <EstrellaAmarilla />
+        </div>
+      </div>
 
+      <section className="birthday-hero" aria-labelledby="birthday-title">
+        <h1 id="birthday-title" className="sr-only">
+          Feliz cumpleaños, Adamaris Flores León
+        </h1>
 
-        <div className="nubes2" aria-hidden="true" />
+        <div className="birthday-name">
+          <img src={nombreAdamaris} alt="Adamaris Flores León" />
+        </div>
 
-        <div className="nube-completa" aria-hidden="true" />
+        <div className="birthday-gallery-wrap">
+          <div className="birthday-gallery-cloud" aria-hidden="true">
+            <div className="nube-completa" />
+          </div>
+          <GaleriaFotosAdita />
+        </div>
 
+        <div className="birthday-message">
+          <p>Feliz cumpleaños</p>
+          <span>Un añito lleno de amor, magia y alegría</span>
+        </div>
+      </section>
+
+      <img className="birthday-character" src={luli} alt="Princesa de cumpleaños" />
+
+      <div className="birthday-bottom-clouds" aria-hidden="true">
         <Nubes />
-        <Globes />
-        <NotaRosa  />
-        <CorazonRosaSuperior  />
-        <NotasMoradas  />
-        <NotasRosasDobles/>
-        <CorazonContorno />
-        <NotaTurquesa />
-        <EstrellaNaranja />
-        <EstrellaAmarilla />
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      </div>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      <Globes />
+    </main>
   )
 }
 

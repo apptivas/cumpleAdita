@@ -1,41 +1,54 @@
-/* Globo 🎈 creado únicamente con CSS
-   Uso:
-   <div className="balloon"></div>
-*/
+/* Escenario transparente que ocupa la pantalla sin bloquear otros controles. */
+.balloons-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.balloons-stage:focus-visible {
+  outline: 3px solid rgba(168, 85, 247, .75);
+  outline-offset: -6px;
+}
 
 .balloon {
+  --balloon-left: 50%;
+  --balloon-delay: 0s;
   --balloon-color: #ff4d6d;
   --balloon-nudo: #d92d50;
   --balloon-luz: #ff7890;
   --balloon-sombra: #d92d50;
-  --balloon-highlight: rgba(255, 255, 255, 0.65);
+  --balloon-highlight: rgba(255, 255, 255, .65);
   --string-color: #777;
 
-  position: relative;
+  position: absolute;
+  left: var(--balloon-left);
+  bottom: -390px;
+  display: block;
   width: 120px;
   height: 150px;
-  margin: 40px auto 190px;
   border-radius: 50% 50% 46% 46%;
   background:
-    radial-gradient(
-      circle at 32% 25%,
-      var(--balloon-highlight) 0 7%,
-      transparent 8%
-    ),
-    radial-gradient(
-      circle at 50% 38%,
-      var(--balloon-luz) 0%,
-      var(--balloon-color) 58%,
-      var(--balloon-sombra) 100%
-    );
+    radial-gradient(circle at 32% 25%, var(--balloon-highlight) 0 7%, transparent 8%),
+    radial-gradient(circle at 50% 38%, var(--balloon-luz) 0%, var(--balloon-color) 58%, var(--balloon-sombra) 100%);
   box-shadow:
-    inset -12px -16px 20px rgba(120, 0, 30, 0.18),
-    0 12px 20px rgba(0, 0, 0, 0.18);
-  transform: rotate(-2deg);
-  animation: balloon-float 3s ease-in-out infinite;
+    inset -12px -16px 20px rgba(120, 0, 30, .18),
+    0 12px 20px rgba(0, 0, 0, .18);
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+  animation: balloon-rise-wave 7.4s ease-in-out infinite;
+  animation-delay: var(--balloon-delay);
 }
 
-/* Nudo del globo */
+/* Nudo del globo. */
 .balloon::before {
   content: "";
   position: absolute;
@@ -48,36 +61,46 @@
   transform: translateX(-50%);
 }
 
-/* Cuerda */
+/* Cuerda curva. */
 .balloon::after {
   content: "";
   position: absolute;
   left: 53%;
   top: calc(100% + 10px);
-
   width: 30px;
   height: 180px;
-
-  background: transparent;
   border-left: 2px solid var(--string-color);
   border-radius: 70%;
-
-  transform-origin: top center;
   transform: translateX(-50%) rotate(3deg);
+  transform-origin: top center;
 }
 
-@keyframes balloon-float {
-  0%,
+/* Ascenso vertical con oscilación lateral en forma de onda. */
+@keyframes balloon-rise-wave {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) scale(.5) rotate(-4deg);
+  }
+  5% { opacity: 1; }
+  20% {
+    transform: translate3d(calc(-50% + 34px), -25vh, 0) scale(.5) rotate(4deg);
+  }
+  40% {
+    transform: translate3d(calc(-50% - 30px), -50vh, 0) scale(.5) rotate(-4deg);
+  }
+  60% {
+    transform: translate3d(calc(-50% + 38px), -75vh, 0) scale(.5) rotate(5deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translate3d(calc(-50% - 26px), -100vh, 0) scale(.5) rotate(-3deg);
+  }
   100% {
-    transform: translateY(0) rotate(-2deg);
-  }
-
-  50% {
-    transform: translateY(-14px) rotate(2deg);
+    opacity: 0;
+    transform: translate3d(calc(-50% + 12px), calc(-100vh - 430px), 0) scale(.5) rotate(3deg);
   }
 }
 
-/* Variantes opcionales */
 .balloon.blue {
   --balloon-color: #3b82f6;
   --balloon-nudo: #2272f2;
@@ -87,28 +110,30 @@
 
 .balloon.yellow {
   --balloon-color: #fbbf24;
-  --balloon-nudo:#f5b207;
+  --balloon-nudo: #f5b207;
   --balloon-luz: #f5d37d;
   --balloon-sombra: #f5b207;
 }
 
 .balloon.green {
   --balloon-color: #22c55e;
-  --balloon-nudo:#02ad40;
+  --balloon-nudo: #02ad40;
   --balloon-luz: #6dc28c;
   --balloon-sombra: #02ad40;
 }
 
 .balloon.purple {
   --balloon-color: #a855f7;
-  --balloon-nudo:#a855f7;
+  --balloon-nudo: #a855f7;
   --balloon-luz: #c395ed;
   --balloon-sombra: #600aad;
 }
 
-/* Respeta preferencias de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .balloon {
+    bottom: 28%;
     animation: none;
+    opacity: 1;
+    transform: translateX(-50%) scale(.5);
   }
 }

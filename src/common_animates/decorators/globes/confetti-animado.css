@@ -1,242 +1,84 @@
-/* Confeti animado creado únicamente con CSS
-  */
-
+/* Explosión de confeti que se monta después de pulsar un globo. */
 .confetti {
   position: fixed;
   inset: 0;
+  z-index: 9999;
   overflow: hidden;
   pointer-events: none;
-  z-index: 9999;
   perspective: 800px;
 }
 
 .confetti__piece {
-  --x-end: 0px;
-  --burst-y: -30vh;
-  --rotation-x: 540deg;
-  --rotation-y: 360deg;
-  --rotation-z: 720deg;
-  --duration: 3.8s;
+  --burst-x: 0px;
+  --burst-y: -180px;
+  --fall-x: 0px;
+  --rotation-x: 720deg;
+  --rotation-y: 540deg;
+  --rotation-z: 900deg;
+  --duration: 3s;
   --delay: 0s;
-  --size-x: 9px;
-  --size-y: 4px;
+  --size-x: 8px;
+  --size-y: 5px;
   --color: #ff3b5c;
 
   position: absolute;
-  /* Todas las piezas nacen exactamente en el centro de la pantalla. */
   top: 50%;
   left: 50%;
   width: var(--size-x);
   height: var(--size-y);
-  background: var(--color);
   border-radius: 1px;
+  background: var(--color);
   opacity: 0;
   transform-origin: center;
   will-change: transform, opacity;
-  animation: confetti-burst var(--duration) cubic-bezier(.15,.75,.25,1) var(--delay) infinite;
-}
-
-@keyframes confetti-burst {
-  0% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(.15);
-  }
-  5% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) rotateX(40deg) rotateY(30deg) rotateZ(20deg) scale(1);
-  }
-  38% {
-    opacity: 1;
-    transform:
-      translate3d(var(--x-end), var(--burst-y), 0)
-      rotateX(calc(var(--rotation-x) * .55))
-      rotateY(calc(var(--rotation-y) * .55))
-      rotateZ(calc(var(--rotation-z) * .55))
-      scale(.9);
-  }
-  72% {
-    opacity: .9;
-    transform:
-      translate3d(calc(var(--x-end) * 1.35), calc(var(--burst-y) + 38vh), 0)
-      rotateX(calc(var(--rotation-x) * .8))
-      rotateY(calc(var(--rotation-y) * .8))
-      rotateZ(calc(var(--rotation-z) * .8))
-      scale(.7);
-  }
-  88%, 100% {
-    opacity: 0;
-    transform:
-      translate3d(calc(var(--x-end) * 1.6), calc(var(--burst-y) + 72vh), 0)
-      rotateX(var(--rotation-x))
-      rotateY(var(--rotation-y))
-      rotateZ(var(--rotation-z))
-      scale(.25);
-  }
+  animation: confetti-burst var(--duration) cubic-bezier(.14,.72,.22,1) var(--delay) both;
 }
 
 .confetti__piece:nth-child(5n) { border-radius: 50%; }
 .confetti__piece:nth-child(7n) { clip-path: polygon(50% 0,100% 100%,0 100%); }
 .confetti__piece:nth-child(9n) { border-radius: 50% 0 50% 0; }
-.confetti__piece:nth-child(11n) { width: 3px; height: 11px; }
+.confetti__piece:nth-child(11n) { width: 3px; height: 12px; }
 
-/* Distintas alturas de salida crean el abanico de la explosión. */
-.confetti__piece:nth-child(6n + 1) { --burst-y: -38vh; }
-.confetti__piece:nth-child(6n + 2) { --burst-y: -28vh; }
-.confetti__piece:nth-child(6n + 3) { --burst-y: -17vh; }
-.confetti__piece:nth-child(6n + 4) { --burst-y: 4vh; }
-.confetti__piece:nth-child(6n + 5) { --burst-y: -32vh; }
-.confetti__piece:nth-child(6n + 6) { --burst-y: -7vh; }
-
-.confetti__piece:nth-child(1) {
-  --x-start: 63.7vw;
-  --x-end: -168px;
-  --fall-distance: 113vh;
-  --rotation-x: 610deg;
-  --rotation-y: 408deg;
-  --rotation-z: 645deg;
-  --duration: 4.71s;
-  --delay: -1.62s;
-  --size-x: 6px;
-  --size-y: 7px;
-  --color: #ffd900;
-}
-
-.confetti__piece:nth-child(2) {
-  --x-start: 4.1vw;
-  --x-end: -133px;
-  --fall-distance: 111vh;
-  --rotation-x: 598deg;
-  --rotation-y: 697deg;
-  --rotation-z: 414deg;
-  --duration: 4.26s;
-  --delay: -1.42s;
-  --size-x: 11px;
-  --size-y: 4px;
-  --color: #ffd900;
-}
-
-.confetti__piece:nth-child(3) {
-  --x-start: 58.7vw;
-  --x-end: -177px;
-  --fall-distance: 110vh;
-  --rotation-x: 1074deg;
-  --rotation-y: 612deg;
-  --rotation-z: 1056deg;
-  --duration: 3.52s;
-  --delay: -3.92s;
-  --size-x: 10px;
-  --size-y: 3px;
-  --color: #ff3b5c;
-}
-
-.confetti__piece:nth-child(4) {
-  --x-start: 38.2vw;
-  --x-end: 3px;
-  --fall-distance: 116vh;
-  --rotation-x: 978deg;
-  --rotation-y: 450deg;
-  --rotation-z: 448deg;
-  --duration: 4.70s;
-  --delay: -2.32s;
-  --size-x: 11px;
-  --size-y: 3px;
-  --color: #11c5d9;
-}
-
-.confetti__piece:nth-child(5) {
-  --x-start: 29.7vw;
-  --x-end: 141px;
-  --fall-distance: 124vh;
-  --rotation-x: 730deg;
-  --rotation-y: 771deg;
-  --rotation-z: 753deg;
-  --duration: 4.63s;
-  --delay: -4.77s;
-  --size-x: 8px;
-  --size-y: 5px;
-  --color: #ff3b5c;
-}
-
-.confetti__piece:nth-child(6) {
-  --x-start: 84.8vw;
-  --x-end: -129px;
-  --fall-distance: 117vh;
-  --rotation-x: 644deg;
-  --rotation-y: 644deg;
-  --rotation-z: 1107deg;
-  --duration: 3.22s;
-  --delay: -3.22s;
-  --size-x: 9px;
-  --size-y: 8px;
-  --color: #0799d3;
-}
-
-.confetti__piece:nth-child(7) {
-  --x-start: 64.5vw;
-  --x-end: 131px;
-  --fall-distance: 125vh;
-  --rotation-x: 535deg;
-  --rotation-y: 726deg;
-  --rotation-z: 861deg;
-  --duration: 3.22s;
-  --delay: -3.10s;
-  --size-x: 8px;
-  --size-y: 8px;
-  --color: #ff7a00;
-}
-
-.confetti__piece:nth-child(8) {
-  --x-start: 83.6vw;
-  --x-end: -152px;
-  --fall-distance: 112vh;
-  --rotation-x: 392deg;
-  --rotation-y: 503deg;
-  --rotation-z: 1181deg;
-  --duration: 3.50s;
-  --delay: -3.95s;
-  --size-x: 10px;
-  --size-y: 4px;
-  --color: #0799d3;
-}
-
-.confetti__piece:nth-child(9) {
-  --x-start: 49.9vw;
-  --x-end: 149px;
-  --fall-distance: 119vh;
-  --rotation-x: 506deg;
-  --rotation-y: 451deg;
-  --rotation-z: 645deg;
-  --duration: 3.44s;
-  --delay: -2.19s;
-  --size-x: 9px;
-  --size-y: 8px;
-  --color: #11c5d9;
-}
-
-.confetti__piece:nth-child(10) {
-  --x-start: 43.0vw;
-  --x-end: 118px;
-  --fall-distance: 117vh;
-  --rotation-x: 730deg;
-  --rotation-y: 404deg;
-  --rotation-z: 643deg;
-  --duration: 4.12s;
-  --delay: -4.55s;
-  --size-x: 5px;
-  --size-y: 3px;
-  --color: #ff4fa3;
-}
-
-/* Sin retrasos negativos: todas salen juntas desde el mismo punto. */
-.confetti .confetti__piece {
-  --duration: 3.6s;
-  --delay: 0s;
+@keyframes confetti-burst {
+  0% {
+    opacity: 1;
+    transform: translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0) scale(.15);
+  }
+  7% {
+    opacity: 1;
+    transform: translate3d(0,0,0) rotateX(45deg) rotateY(35deg) rotateZ(20deg) scale(1);
+  }
+  40% {
+    opacity: 1;
+    transform:
+      translate3d(var(--burst-x),var(--burst-y),0)
+      rotateX(calc(var(--rotation-x) * .55))
+      rotateY(calc(var(--rotation-y) * .55))
+      rotateZ(calc(var(--rotation-z) * .55))
+      scale(.95);
+  }
+  75% {
+    opacity: .9;
+    transform:
+      translate3d(var(--fall-x),calc(var(--burst-y) + 42vh),0)
+      rotateX(calc(var(--rotation-x) * .82))
+      rotateY(calc(var(--rotation-y) * .82))
+      rotateZ(calc(var(--rotation-z) * .82))
+      scale(.72);
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(var(--fall-x),calc(var(--burst-y) + 78vh),0)
+      rotateX(var(--rotation-x))
+      rotateY(var(--rotation-y))
+      rotateZ(var(--rotation-z))
+      scale(.28);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .confetti__piece { animation: none; display: none; }
-}
-
-.confetti.is-paused .confetti__piece {
-  animation-play-state: paused;
+  .confetti__piece {
+    animation-duration: .01ms;
+  }
 }
