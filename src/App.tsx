@@ -63,12 +63,6 @@ function App() {
     <main className="birthday-landing">
       <div className="birthday-background" aria-hidden="true">
         <img className="birthday-rainbow birthday-rainbow--top" src={arcoiris} alt="" />
-        <img
-          className="birthday-rainbow birthday-rainbow--bottom"
-          src={arcoirisSinFondo}
-          alt=""
-        />
-
         <div className="birthday-top-clouds">
           <div className="nubes2" />
         </div>
@@ -128,6 +122,13 @@ function App() {
       </div>
 
       <Globes />
+      <img
+        className="birthday-rainbow birthday-rainbow--bottom"
+        src={arcoirisSinFondo}
+        alt=""
+        aria-hidden="true"
+      />
+
       </main>
 
       <BirthdayCountdownSection />

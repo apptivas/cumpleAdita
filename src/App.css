@@ -68,11 +68,16 @@
 }
 
 .birthday-rainbow--bottom {
-  left: -45%;
-  bottom: -18%;
-  width: 157%;
+  --birthday-bottom-rainbow-height: 460px;
+  z-index: 3;
+  right: auto;
+  bottom: calc(var(--birthday-bottom-rainbow-height) / -2);
+  left: -60vw;
+  width: 145vw;
+  height: var(--birthday-bottom-rainbow-height);
   opacity: .78;
-  transform: rotate(-11deg);
+  object-fit: fill;
+  object-position: left center;
   filter: saturate(.88) brightness(1.06);
 }
 
@@ -459,12 +464,6 @@
     right: -16%;
     width: 82%;
   }
-
-  .birthday-rainbow--bottom {
-    left: -22%;
-    width: 135%;
-  }
-
   .birthday-decoration { --decoration-scale: .72; }
   .birthday-decoration--note-pink { left: 3%; }
   .birthday-decoration--heart-top { right: 7%; }
