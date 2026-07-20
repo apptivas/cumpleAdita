@@ -19,8 +19,18 @@ const photos = [
   },
 ]
 
-export const GaleriaFotosAdita = () => {
+type GaleriaFotosAditaProps = {
+  onLightboxChange?: (isOpen: boolean) => void
+}
+
+export const GaleriaFotosAdita = ({
+  onLightboxChange,
+}: GaleriaFotosAditaProps) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    onLightboxChange?.(selectedIndex !== null)
+  }, [onLightboxChange, selectedIndex])
 
   useEffect(() => {
     if (selectedIndex === null) return

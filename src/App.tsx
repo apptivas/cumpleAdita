@@ -1,3 +1,4 @@
+import { useState } from "react"
 import "./common_animates/decorators/nubes2.css"
 import "./common_animates/decorators/nube_completa.css"
 import {
@@ -105,18 +106,24 @@ function BirthdayEventSection() {
           ¡Nos encantará compartir este día mágico contigo!
         </p>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
       <p className="birthday-event__note2">
-        -Creado por XaviFlores-
+        Hecho con ❤️ por XaviFlores
       </p>
     </section>
   )
 }
 
 function App() {
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false)
+
   return (
     <>
     <main className="birthday-landing">
@@ -177,13 +184,15 @@ function App() {
           <div className="birthday-gallery-cloud" aria-hidden="true">
             <div className="nube-completa" />
           </div>
-          <GaleriaFotosAdita />
+          <GaleriaFotosAdita onLightboxChange={setIsGalleryOpen} />
         </div>
 
-        <div className="birthday-message">
-          <p>Mi primer añito</p>
-          <span>Un añito lleno de amor, magia y alegría</span>
-        </div>
+        {!isGalleryOpen && (
+          <div className="birthday-message">
+            <p>Mi primer añito</p>
+            <span>Un añito lleno de amor, magia y alegría</span>
+          </div>
+        )}
       </section>
 
       <img
