@@ -77,7 +77,13 @@ export const GaleriaFotosAdita = () => {
             aria-label={`Ampliar fotografía ${index + 1}`}
             onClick={() => setSelectedIndex(index)}
           >
-            <img src={photo.src} alt={photo.alt} />
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              fetchPriority={index === 0 ? "high" : "low"}
+            />
           </button>
         ))}
       </section>
@@ -118,6 +124,8 @@ export const GaleriaFotosAdita = () => {
               <img
                 src={photos[selectedIndex].src}
                 alt={photos[selectedIndex].alt}
+                loading="eager"
+                decoding="async"
               />
             </figure>
 
@@ -140,7 +148,12 @@ export const GaleriaFotosAdita = () => {
                   aria-pressed={index === selectedIndex}
                   onClick={() => setSelectedIndex(index)}
                 >
-                  <img src={photo.src} alt="" />
+                  <img
+                    src={photo.src}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </button>
               ))}
             </div>

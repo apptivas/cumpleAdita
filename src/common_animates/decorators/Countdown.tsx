@@ -101,7 +101,7 @@ export const Countdown = () => {
     <section className="birthday-countdown" aria-labelledby="countdown-title">
       <div className="birthday-countdown__heading">
         <p id="countdown-title">
-          {isFinished ? "¡Llegó el gran día!" : "Celebremos juntos en:"}
+          {isFinished ? "¡Llegó el gran día!" : "Celebremos juntos su primer cumpleaños en:"}
         </p>
       </div>
 

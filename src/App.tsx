@@ -121,7 +121,13 @@ function App() {
     <>
     <main className="birthday-landing">
       <div className="birthday-background" aria-hidden="true">
-        <img className="birthday-rainbow birthday-rainbow--top" src={arcoiris} alt="" />
+        <img
+          className="birthday-rainbow birthday-rainbow--top"
+          src={arcoiris}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
         <div className="birthday-top-clouds">
           <div className="nubes2" />
         </div>
@@ -158,7 +164,13 @@ function App() {
         </h1>
 
         <div className="birthday-name">
-          <img src={nombreAdamaris} alt="Adamaris Flores León" />
+          <img
+            src={nombreAdamaris}
+            alt="Adamaris Flores León"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
         </div>
 
         <div className="birthday-gallery-wrap">
@@ -174,7 +186,13 @@ function App() {
         </div>
       </section>
 
-      <img className="birthday-character" src={luli} alt="Princesa de cumpleaños" />
+      <img
+        className="birthday-character"
+        src={luli}
+        alt="Princesa de cumpleaños"
+        loading="lazy"
+        decoding="async"
+      />
 
       <div className="birthday-bottom-clouds" aria-hidden="true">
         <Nubes />*
@@ -186,6 +204,8 @@ function App() {
         src={arcoirisSinFondo}
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
       />
 
       </main>
