@@ -60,7 +60,8 @@
 .birthday-countdown__unit strong {
   min-width: 0;
   color: #fff8fc;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: "Nunito", sans-serif;
+  font-variant-numeric: tabular-nums;
   font-size: clamp(25px, 8.2vw, 58px);
   font-weight: 800;
   line-height: 1;

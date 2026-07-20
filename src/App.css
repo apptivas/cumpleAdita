@@ -181,7 +181,7 @@
 
 .birthday-message p {
   margin: 0;
-  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-family: "Dancing Script", cursive;
   font-size: clamp(36px, 11vw, 58px);
   font-weight: 700;
   line-height: .95;
@@ -368,7 +368,7 @@
   max-width: 680px;
   margin: 0;
   color: #8d428f;
-  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-family: "Dancing Script", cursive;
   font-size: clamp(34px, 8vw, 62px);
   line-height: 1.08;
   text-wrap: balance;
@@ -419,7 +419,7 @@
 .birthday-invitation p {
   margin: 0;
   color: #704077;
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: clamp(15px, 3.3vw, 19px);
   font-weight: 500;
   line-height: 1.75;
@@ -432,7 +432,7 @@
 
 .birthday-invitation strong {
   color: #c44f91;
-  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-family: "Dancing Script", cursive;
   font-size: 1.35em;
   line-height: 1;
 }
@@ -531,7 +531,7 @@
 
 .birthday-event__header h2 {
   margin: 0;
-  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-family: "Dancing Script", cursive;
   font-size: clamp(27px, 6vw, 42px);
   line-height: 1;
   text-align: center;
@@ -670,7 +670,7 @@
 .birthday-event__note {
   margin: 18px 0 0;
   color: #96609b;
-  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-family: "Dancing Script", cursive;
   font-size: clamp(20px, 4vw, 27px);
   font-weight: 700;
   line-height: 1.25;
@@ -680,7 +680,7 @@
 .birthday-event__note2 {
   margin: 18px 0 0;
   color: darkorange;
-  font-family: "Brush Script MT", "Segoe Script";
+  font-family: "Dancing Script", cursive;
   font-size: clamp(20px, 4vw, 20px);
   font-weight: 700;
   line-height: 1.25;
