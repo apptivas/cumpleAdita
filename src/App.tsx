@@ -105,6 +105,13 @@ function BirthdayEventSection() {
           ¡Nos encantará compartir este día mágico contigo!
         </p>
       </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <p className="birthday-event__note2">
+        -Creado por XaviFlores-
+      </p>
     </section>
   )
 }
