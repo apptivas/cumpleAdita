@@ -101,9 +101,8 @@ export const Countdown = () => {
     <section className="birthday-countdown" aria-labelledby="countdown-title">
       <div className="birthday-countdown__heading">
         <p id="countdown-title">
-          {isFinished ? "¡Llegó el gran día!" : "Cuenta regresiva para la celebración"}
+          {isFinished ? "¡Llegó el gran día!" : "Celebremos juntos en:"}
         </p>
-        <time dateTime="2026-08-10T00:00:00-06:00">10 · 08 · 2026</time>
       </div>
 
       <div className="birthday-countdown__grid">

@@ -21,6 +21,42 @@ import luli from "./images/luli.png"
 import nombreAdamaris from "./images/nombreAdamaris.png"
 import "./App.css"
 
+function BirthdayCountdownSection() {
+  return (
+    <section
+      className="birthday-countdown-section"
+      aria-labelledby="birthday-countdown-section-title"
+    >
+      <div className="birthday-countdown-section__content">
+        <header className="birthday-countdown-section__header">
+          <span aria-hidden="true">✦</span>
+          <h2 id="birthday-countdown-section-title">
+            Conteo Regresivo para el gran día 🎂
+          </h2>
+          <span aria-hidden="true">✦</span>
+        </header>
+
+        <Countdown />
+
+        <article className="birthday-invitation">
+          <p>
+            Con mucha alegría, tenemos el honor de invitarte a celebrar el
+            cumpleaños de nuestra adorada princesa, <strong>Adamaris Flores Leon</strong>.
+          </p>
+          <p>
+            Acompáñanos a compartir una tarde llena de alegría, sonrisas,
+            diversión y momentos inolvidables junto a nuestra pequeña
+            cumpleañera.
+          </p>
+          <p className="birthday-invitation__closing">
+            ¡Tu presencia hará que este día sea aún más especial!
+          </p>
+        </article>
+      </div>
+    </section>
+  )
+}
+
 function App() {
   return (
     <>
@@ -94,7 +130,7 @@ function App() {
       <Globes />
       </main>
 
-    <Countdown />
+      <BirthdayCountdownSection />
     </>
   )
 }
