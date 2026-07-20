@@ -27,6 +27,7 @@ function BirthdayCountdownSection() {
       className="birthday-countdown-section"
       aria-labelledby="birthday-countdown-section-title"
     >
+
       <div className="birthday-countdown-section__content">
         <header className="birthday-countdown-section__header">
           <span aria-hidden="true">✦</span>
@@ -52,6 +53,57 @@ function BirthdayCountdownSection() {
             ¡Tu presencia hará que este día sea aún más especial!
           </p>
         </article>
+      </div>
+    </section>
+  )
+}
+
+function BirthdayEventSection() {
+  return (
+    <section className="birthday-event" aria-labelledby="birthday-event-title">
+      <div className="birthday-event__sparkles" aria-hidden="true">
+        <span>✦</span>
+        <span>♥</span>
+        <span>✦</span>
+      </div>
+
+      <div className="birthday-event__panel">
+        <header className="birthday-event__header">
+          <span aria-hidden="true">✿</span>
+          <h2 id="birthday-event-title">Detalles del evento</h2>
+          <span aria-hidden="true">✿</span>
+        </header>
+
+        <div className="birthday-event__details">
+          <article className="birthday-event-card birthday-event-card--date">
+            <div className="birthday-event-card__icon" aria-hidden="true">
+              <span>10</span>
+            </div>
+            <div className="birthday-event-card__copy">
+              <h3>Fecha y hora</h3>
+              <p><strong>10 de agosto de 2026</strong></p>
+              <p><span aria-hidden="true">🕒</span> Desde las 15h00.</p>
+            </div>
+          </article>
+
+          <article className="birthday-event-card birthday-event-card--location">
+            <div className="birthday-event-card__icon" aria-hidden="true">♥</div>
+            <div className="birthday-event-card__copy">
+              <h3>Ubicación</h3>
+              <p><strong>Lugar del evento</strong></p>
+              <p><span aria-hidden="true">🏰</span> Centro de Convenciones Charles Darwin.</p>
+            </div>
+          </article>
+        </div>
+
+        <a className="birthday-event__confirm" href={"https://forms.gle/oEGpJpb9gx8tnBqh7"}>
+          <span aria-hidden="true">✓</span>
+          Confirmar asistencia
+        </a>
+
+        <p className="birthday-event__note">
+          ¡Nos encantará compartir este día mágico contigo!
+        </p>
       </div>
     </section>
   )
@@ -118,7 +170,7 @@ function App() {
       <img className="birthday-character" src={luli} alt="Princesa de cumpleaños" />
 
       <div className="birthday-bottom-clouds" aria-hidden="true">
-        <Nubes />
+        <Nubes />*
       </div>
 
       <Globes />
@@ -132,6 +184,7 @@ function App() {
       </main>
 
       <BirthdayCountdownSection />
+      <BirthdayEventSection />
     </>
   )
 }

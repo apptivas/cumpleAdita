@@ -328,6 +328,23 @@
   box-shadow: -55px -25px 0 rgba(255,255,255,.12);
 }
 
+.birthday-countdown-section__clouds {
+  position: absolute;
+  z-index: 0;
+  top: -18px;
+  right: 0;
+  left: 0;
+  height: 230px;
+  opacity: .88;
+  pointer-events: none;
+  transform: scaleY(-1);
+  transform-origin: center;
+}
+
+.birthday-countdown-section__clouds .cloud-scene {
+  min-height: 230px;
+}
+
 .birthday-countdown-section__content {
   position: relative;
   z-index: 1;
@@ -425,6 +442,239 @@
   font-size: clamp(18px, 4vw, 23px);
   font-weight: 800;
   line-height: 1.45;
+}
+
+.birthday-event {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  margin-top: -1px;
+  padding: clamp(80px, 12vw, 130px) 16px;
+  overflow: hidden;
+  color: #72417e;
+  background:
+    radial-gradient(circle at 14% 19%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 87% 25%, rgba(255,255,255,.82) 0 3px, transparent 4px),
+    radial-gradient(circle at 80% 84%, rgba(255,255,255,.72) 0 2px, transparent 3px),
+    radial-gradient(ellipse at 50% 48%, rgba(255,247,219,.88), transparent 65%),
+    linear-gradient(155deg, #f8dcef 0%, #ffd8e9 35%, #f9e7c8 68%, #d7eefb 100%);
+}
+
+.birthday-event::before,
+.birthday-event::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -7%;
+  left: -7%;
+  height: 42px;
+  background:
+    radial-gradient(circle at 21px 0, transparent 20px, rgba(255,255,255,.68) 21px 29px, transparent 30px)
+    0 0 / 42px 42px repeat-x;
+  pointer-events: none;
+}
+
+.birthday-event::before { top: 0; }
+
+.birthday-event::after {
+  bottom: 0;
+  transform: scaleY(-1);
+}
+
+.birthday-event__sparkles span {
+  position: absolute;
+  z-index: 0;
+  color: rgba(239,112,169,.58);
+  font-size: clamp(22px, 5vw, 38px);
+  pointer-events: none;
+}
+
+.birthday-event__sparkles span:nth-child(1) { top: 18%; left: 7%; }
+.birthday-event__sparkles span:nth-child(2) { top: 52%; right: 6%; color: rgba(183,104,213,.48); }
+.birthday-event__sparkles span:nth-child(3) { bottom: 13%; left: 11%; color: rgba(244,174,73,.55); }
+
+.birthday-event__panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 820px);
+  margin-inline: auto;
+  padding: clamp(54px, 9vw, 76px) clamp(14px, 4vw, 38px) clamp(28px, 6vw, 48px);
+  border: 2px solid rgba(255,255,255,.86);
+  border-radius: clamp(30px, 6vw, 48px);
+  background:
+    linear-gradient(145deg, rgba(255,252,239,.9), rgba(255,239,224,.72)),
+    rgba(255,255,255,.62);
+  box-shadow:
+    0 22px 55px rgba(124,67,139,.17),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter: blur(10px);
+}
+
+.birthday-event__header {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(calc(100% - 44px), 430px);
+  min-height: 62px;
+  padding: 8px 20px;
+  border: 3px solid rgba(255,255,255,.88);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #f57cb2, #e965ab 52%, #c467ce);
+  box-shadow: 0 8px 0 rgba(191,79,151,.14), 0 14px 28px rgba(129,58,137,.2);
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.birthday-event__header h2 {
+  margin: 0;
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(27px, 6vw, 42px);
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 2px 0 rgba(139,52,125,.2);
+}
+
+.birthday-event__header span {
+  color: #fff3a8;
+  font-size: 18px;
+}
+
+.birthday-event__details {
+  display: grid;
+  gap: 18px;
+}
+
+.birthday-event-card {
+  display: grid;
+  grid-template-columns: clamp(78px, 19vw, 112px) 1fr;
+  align-items: center;
+  gap: clamp(13px, 4vw, 28px);
+  min-width: 0;
+  padding: clamp(14px, 4vw, 24px);
+  border: 2px solid rgba(255,255,255,.92);
+  border-radius: clamp(24px, 5vw, 34px);
+  background: rgba(255,255,255,.78);
+  box-shadow: 0 10px 22px rgba(128,73,140,.12), inset 0 -4px 0 rgba(228,177,210,.18);
+}
+
+.birthday-event-card__icon {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 4px solid rgba(255,255,255,.78);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, #f6a0c2, #ec5d9f);
+  box-shadow: 0 8px 16px rgba(211,83,145,.2);
+  font-size: clamp(26px, 7vw, 42px);
+  font-weight: 900;
+}
+
+.birthday-event-card--date .birthday-event-card__icon {
+  position: relative;
+  align-content: end;
+  padding-bottom: 14%;
+  border-radius: 28%;
+}
+
+.birthday-event-card--date .birthday-event-card__icon::before {
+  content: "";
+  position: absolute;
+  top: 21%;
+  right: 16%;
+  left: 16%;
+  height: 9%;
+  border-radius: 999px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 11px 0 rgba(255,255,255,.2);
+}
+
+.birthday-event-card--location .birthday-event-card__icon {
+  background: linear-gradient(145deg, #6fddd8, #42bfc1);
+  box-shadow: 0 8px 16px rgba(58,174,179,.2);
+}
+
+.birthday-event-card__copy {
+  min-width: 0;
+}
+
+.birthday-event-card__copy h3 {
+  margin: 0 0 5px;
+  color: #9d4cab;
+  font-size: clamp(18px, 4vw, 24px);
+  line-height: 1.1;
+}
+
+.birthday-event-card--location h3 { color: #27aeb1; }
+
+.birthday-event-card__copy p {
+  margin: 3px 0 0;
+  color: #6f5574;
+  font-size: clamp(12px, 3vw, 16px);
+  line-height: 1.45;
+}
+
+.birthday-event-card__copy strong {
+  color: #e2529b;
+  font-size: 1.05em;
+}
+
+.birthday-event-card--location strong { color: #21a4aa; }
+
+.birthday-event__confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(100%, 390px);
+  min-height: 58px;
+  margin: clamp(26px, 5vw, 38px) auto 0;
+  padding: 12px 24px;
+  border: 3px solid rgba(255,255,255,.9);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #f06da9, #d859ba 55%, #a75dd1);
+  box-shadow: 0 8px 0 rgba(157,61,143,.18), 0 14px 25px rgba(118,58,137,.2);
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.birthday-event__confirm span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #b64ab0;
+  background: #fff7c4;
+}
+
+.birthday-event__confirm:hover {
+  filter: brightness(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 11px 0 rgba(157,61,143,.16), 0 18px 30px rgba(118,58,137,.24);
+}
+
+.birthday-event__confirm:focus-visible {
+  outline: 4px solid rgba(78,183,199,.42);
+  outline-offset: 4px;
+}
+
+.birthday-event__note {
+  margin: 18px 0 0;
+  color: #96609b;
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+  font-size: clamp(20px, 4vw, 27px);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
 }
 
 @keyframes birthday-decoration-float {
